@@ -1,5 +1,6 @@
 package com.ias.workhours.service;
 
+import com.ias.workhours.dto.ReportDTO;
 import com.ias.workhours.model.Report;
 
 /**
@@ -10,8 +11,8 @@ public interface ReportService {
 	/**
 	 * Report.
 	 *
-	 * @param report the report
+	 * @param reportDTO the report DTO
 	 * @return the report
 	 */
-	Report report(Report report);
+	Report report(ReportDTO reportDTO);
 }

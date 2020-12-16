@@ -1,7 +1,9 @@
 package com.ias.workhours.service.impl;
 
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
+import com.ias.workhours.dto.ReportDTO;
 import com.ias.workhours.model.Report;
 import com.ias.workhours.service.ReportService;
 
@@ -9,9 +11,11 @@ import com.ias.workhours.service.ReportService;
 public class ReportServiceImpl implements ReportService {
 
 	@Override
-	public Report report(Report report) {
+	@Transactional
+	public Report report(ReportDTO reportDTO) {
 		// TODO Auto-generated method stub
 		return null;
 	}
+
 
 }
