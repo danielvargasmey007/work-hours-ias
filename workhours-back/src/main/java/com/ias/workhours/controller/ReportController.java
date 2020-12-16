@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.ias.workhours.dto.HoursRequestDTO;
 import com.ias.workhours.dto.ReportDTO;
 import com.ias.workhours.service.ReportService;
 

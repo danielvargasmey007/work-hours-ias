@@ -19,6 +19,17 @@ public class HoursRequestDTO {
 	}
 
 	/**
+	 * Instantiates a new hours request DTO.
+	 *
+	 * @param idTechnician the id technician
+	 * @param week the week
+	 */
+	public HoursRequestDTO(String idTechnician, Integer week) {
+		this.idTechnician = idTechnician;
+		this.week = week;
+	}
+
+	/**
 	 * Gets the id technician.
 	 *
 	 * @return the id technician
