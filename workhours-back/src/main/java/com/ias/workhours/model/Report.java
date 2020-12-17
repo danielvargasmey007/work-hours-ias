@@ -2,15 +2,14 @@ package com.ias.workhours.model;
 
 import java.util.Date;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 
 import org.springframework.lang.NonNull;
 
@@ -30,22 +29,28 @@ public class Report {
 	/** The start date. */
 	@Column
 	@NonNull
+	@NotNull
 	private Date startDate;
 
 	/** The end date. */
 	@Column
 	@NonNull
+	@NotNull
 	private Date endDate;
 
-	/** The technician. */
-	@ManyToOne(cascade = CascadeType.ALL)
-	@JoinColumn(name = "idTechnician")
-	private Technician technician;
+	/** The id technician. */
+	@Column
+	@NonNull
+	@NotNull
+    @NotEmpty
+	private String idTechnician;
 
-	/** The service. */
-	@ManyToOne(cascade = CascadeType.ALL)
-	@JoinColumn(name = "idService")
-	private Service service;
+	/** The id service. */
+	@Column
+	@NonNull
+	@NotNull
+    @NotEmpty
+	private String idService;
 
 	/**
 	 * Instantiates a new report.
@@ -109,39 +114,39 @@ public class Report {
 	}
 
 	/**
-	 * Gets the technician.
+	 * Gets the id technician.
 	 *
-	 * @return the technician
+	 * @return the id technician
 	 */
-	public Technician getTechnician() {
-		return technician;
+	public String getIdTechnician() {
+		return idTechnician;
 	}
 
 	/**
-	 * Sets the technician.
+	 * Sets the id technician.
 	 *
-	 * @param technician the new technician
+	 * @param idTechnician the new id technician
 	 */
-	public void setTechnician(Technician technician) {
-		this.technician = technician;
+	public void setIdTechnician(String idTechnician) {
+		this.idTechnician = idTechnician;
 	}
 
 	/**
-	 * Gets the service.
+	 * Gets the id service.
 	 *
-	 * @return the service
+	 * @return the id service
 	 */
-	public Service getService() {
-		return service;
+	public String getIdService() {
+		return idService;
 	}
 
 	/**
-	 * Sets the service.
+	 * Sets the id service.
 	 *
-	 * @param service the new service
+	 * @param idService the new id service
 	 */
-	public void setService(Service service) {
-		this.service = service;
+	public void setIdService(String idService) {
+		this.idService = idService;
 	}
 
 }

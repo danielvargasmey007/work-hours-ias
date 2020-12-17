@@ -1,5 +1,7 @@
 package com.ias.workhours.controller;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -8,12 +10,12 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.ias.workhours.dto.HoursRequestDTO;
-import com.ias.workhours.dto.ReportDTO;
+import com.ias.workhours.model.Report;
 import com.ias.workhours.service.ReportService;
 
 /**
  * The Class ReportController.
+ * @author Anderson Vargas
  */
 @RestController
 @RequestMapping("/reports")
@@ -37,9 +39,13 @@ public class ReportController {
 	 *
 	 * @param reportDTO the report DTO
 	 * @return the response entity
+	 * @throws Exception 
 	 */
 	@PostMapping
-	public ResponseEntity<Object> report(@RequestBody ReportDTO reportDTO) {
-		return ResponseEntity.status(HttpStatus.OK).body(this.reportService.report(reportDTO));
+	public ResponseEntity<Object> report(@Valid @RequestBody Report report) throws Exception {
+		if(report.getStartDate().after(report.getEndDate())) {
+			throw new Exception("The start date must be before the end date");
+		}
+		return ResponseEntity.status(HttpStatus.OK).body(this.reportService.report(report));
 	}
 }

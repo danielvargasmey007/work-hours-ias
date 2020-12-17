@@ -22,7 +22,7 @@ public class RestControllerAdviceConfig {
 	@ExceptionHandler(Throwable.class)
 	@ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
 	public Object catchError(Throwable e) {
-		return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("An error occurred please try again later!");
+		return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(e.getMessage());
 	}
 
 }
