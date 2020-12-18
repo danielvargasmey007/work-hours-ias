@@ -42,15 +42,23 @@ public class Report {
 	@Column
 	@NonNull
 	@NotNull
-    @NotEmpty
+	@NotEmpty
 	private String idTechnician;
 
 	/** The id service. */
 	@Column
 	@NonNull
 	@NotNull
-    @NotEmpty
+	@NotEmpty
 	private String idService;
+
+	/** The week. */
+	@Column
+	private Integer startWeek;
+
+	/** The week. */
+	@Column
+	private Integer endWeek;
 
 	/**
 	 * Instantiates a new report.
@@ -147,6 +155,42 @@ public class Report {
 	 */
 	public void setIdService(String idService) {
 		this.idService = idService;
+	}
+
+	/**
+	 * Gets the start week.
+	 *
+	 * @return the start week
+	 */
+	public Integer getStartWeek() {
+		return startWeek;
+	}
+
+	/**
+	 * Sets the start week.
+	 *
+	 * @param startWeek the new start week
+	 */
+	public void setStartWeek(Integer startWeek) {
+		this.startWeek = startWeek;
+	}
+
+	/**
+	 * Gets the end week.
+	 *
+	 * @return the end week
+	 */
+	public Integer getEndWeek() {
+		return endWeek;
+	}
+
+	/**
+	 * Sets the end week.
+	 *
+	 * @param endWeek the new end week
+	 */
+	public void setEndWeek(Integer endWeek) {
+		this.endWeek = endWeek;
 	}
 
 }

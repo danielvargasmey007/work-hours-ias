@@ -31,6 +31,26 @@ public class HoursDTO {
 	}
 
 	/**
+	 * Instantiates a new hours DTO.
+	 *
+	 * @param normals the normals
+	 * @param nocturnals the nocturnals
+	 * @param sundays the sundays
+	 * @param normalsExt the normals ext
+	 * @param nocturnalsExt the nocturnals ext
+	 * @param sundaysExt the sundays ext
+	 */
+	public HoursDTO(Double normals, Double nocturnals, Double sundays, Double normalsExt, Double nocturnalsExt,
+			Double sundaysExt) {
+		this.normals = normals;
+		this.nocturnals = nocturnals;
+		this.sundays = sundays;
+		this.normalsExt = normalsExt;
+		this.nocturnalsExt = nocturnalsExt;
+		this.sundaysExt = sundaysExt;
+	}
+
+	/**
 	 * Gets the normals.
 	 *
 	 * @return the normals

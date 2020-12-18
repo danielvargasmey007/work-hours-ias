@@ -1,5 +1,8 @@
 package com.ias.workhours.service.impl;
 
+import java.util.Calendar;
+import java.util.TimeZone;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -10,6 +13,7 @@ import com.ias.workhours.service.ReportService;
 
 /**
  * The Class ReportServiceImpl.
+ * 
  * @author Anderson Vargas
  */
 @Service
@@ -37,6 +41,18 @@ public class ReportServiceImpl implements ReportService {
 	@Override
 	@Transactional
 	public Report report(Report report) {
+		Calendar date = Calendar.getInstance();
+		date.setTimeZone(TimeZone.getTimeZone("UTC"));
+		date.setTime(report.getStartDate());
+
+		Integer startWeek = date.get(Calendar.WEEK_OF_YEAR);
+		report.setStartWeek(startWeek);
+
+		date.setTime(report.getEndDate());
+
+		Integer endWeek = date.get(Calendar.WEEK_OF_YEAR);
+		report.setEndWeek(endWeek);
+
 		return this.reportRepository.save(report);
 	}
 
