@@ -116,7 +116,8 @@ public class HoursServiceImpl implements HoursService {
 		return hoursDTO;
 	}
 
-	private double getCurrentHourStatus(HoursDTO hoursDTO) {
+	@Override
+	public double getCurrentHourStatus(HoursDTO hoursDTO) {
 		return (hoursDTO.getNormals() + hoursDTO.getNocturnals() + hoursDTO.getSundays());
 	}
 }
