@@ -65,7 +65,7 @@ public class HoursServiceImpl implements HoursService {
 			Integer sd = startDate.get(Calendar.DAY_OF_WEEK);
 			Integer ed = endDate.get(Calendar.DAY_OF_WEEK);
 			double diference = ChronoUnit.MINUTES.between(startDate.toInstant(), endDate.toInstant()) * 0.0167;
-			
+
 			if (sd == 1 || ed == 1) {
 				if (this.getCurrentHourStatus(hoursDTO) < 48) {
 					if (diference + this.getCurrentHourStatus(hoursDTO) > 48) {
@@ -94,8 +94,7 @@ public class HoursServiceImpl implements HoursService {
 						hoursDTO.setNormalsExt(hoursDTO.getNormalsExt() + diference);
 					}
 
-				} else if (sh > 20) {
-					if (sd == ed || eh < 7) {
+				} else if ((sh >= 0 && eh <= 8) || (sh >= 20 && eh <= 23)) {
 						if (this.getCurrentHourStatus(hoursDTO) < 48) {
 							if (diference + this.getCurrentHourStatus(hoursDTO) > 48) {
 								double temp = (48 - this.getCurrentHourStatus(hoursDTO));
@@ -108,7 +107,7 @@ public class HoursServiceImpl implements HoursService {
 						} else {
 							hoursDTO.setNocturnalsExt(hoursDTO.getNocturnalsExt() + diference);
 						}
-					}
+					
 				}
 			}
 
