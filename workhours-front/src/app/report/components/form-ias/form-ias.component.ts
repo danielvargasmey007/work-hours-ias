@@ -38,6 +38,7 @@ export class FormIasComponent implements OnInit {
     this.reportService.report(report).subscribe(x => {
       this.form.reset();
       alert('Great! successfully saved');
-    });
+    },
+    (error) => alert(error));
   }
 }

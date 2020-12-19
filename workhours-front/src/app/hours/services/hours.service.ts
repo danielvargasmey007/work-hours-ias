@@ -16,7 +16,7 @@ export class HoursService {
     params = params.append('week', rq.week);
 
     return this.http.get<Hour>(
-      `http://ec2-3-137-182-178.us-east-2.compute.amazonaws.com:81/hours`,
+      `http://ec2-18-222-162-77.us-east-2.compute.amazonaws.com:81/hours`,
       // tslint:disable-next-line:object-literal-shorthand
       { params: params }
     );

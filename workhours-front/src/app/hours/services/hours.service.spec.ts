@@ -32,11 +32,11 @@ describe('HoursService', () => {
     };
     service.getHours(rq).subscribe();
     const mockReq = httpMock.expectOne(
-      `http://ec2-3-137-182-178.us-east-2.compute.amazonaws.com:81/hours?idTechnician=1&week=2`
+      `http://ec2-18-222-162-77.us-east-2.compute.amazonaws.com:81/hours?idTechnician=1&week=2`
     );
     expect(mockReq.request.method).toStrictEqual('GET');
     expect(mockReq.request.url).toStrictEqual(
-      `http://ec2-3-137-182-178.us-east-2.compute.amazonaws.com:81/hours`
+      `http://ec2-18-222-162-77.us-east-2.compute.amazonaws.com:81/hours`
     );
   });
 });

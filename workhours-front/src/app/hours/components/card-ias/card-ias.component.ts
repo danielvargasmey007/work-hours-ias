@@ -36,7 +36,8 @@ export class CardIasComponent implements OnInit {
 
     this.hoursService.getHours(rq).subscribe((x) => {
       this.hour = x;
-    });
-    console.log(this.hour);
+    },
+    (error) => alert(error)
+    );
   }
 }

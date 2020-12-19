@@ -14,7 +14,7 @@ export class ReportService {
     request: Report
   ): Observable<Report> {
     return this.http.post<Report>(
-      `http://ec2-3-137-182-178.us-east-2.compute.amazonaws.com:81/reports`, request
+      `http://ec2-18-222-162-77.us-east-2.compute.amazonaws.com:81/reports`, request
     );
   }
 

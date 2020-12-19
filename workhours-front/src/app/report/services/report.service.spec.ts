@@ -35,11 +35,11 @@ describe('ReportService', () => {
     };
     service.report(rq).subscribe();
     const mockReq = httpMock.expectOne(
-      `http://ec2-3-137-182-178.us-east-2.compute.amazonaws.com:81/reports`
+      `http://ec2-18-222-162-77.us-east-2.compute.amazonaws.com:81/reports`
     );
     expect(mockReq.request.method).toStrictEqual('POST');
     expect(mockReq.request.url).toStrictEqual(
-      `http://ec2-3-137-182-178.us-east-2.compute.amazonaws.com:81/reports`
+      `http://ec2-18-222-162-77.us-east-2.compute.amazonaws.com:81/reports`
     );
   });
 });
