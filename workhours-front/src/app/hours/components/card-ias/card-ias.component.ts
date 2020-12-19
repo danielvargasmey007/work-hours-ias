@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HoursService } from '../../services/hours.service';
 import { Hour } from '../../models/hors.model';
-import { FormBuilder } from '@angular/forms';
+import { FormBuilder, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-card-ias',
@@ -14,8 +14,8 @@ export class CardIasComponent implements OnInit {
 
   constructor(private hoursService: HoursService,  private formBuilder: FormBuilder) {
     this.form = this.formBuilder.group({
-      idTechnician: '',
-      week: ''
+      idTechnician: ['', [Validators.required]],
+      week: ['', [Validators.required]],
     });
   }
 
